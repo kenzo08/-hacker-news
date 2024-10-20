@@ -18,8 +18,6 @@ const { fetchStory, fetchStoryComment } = useNewsStores()
 
 
 const fetchComments = async (ids: number[]) => {
-  console.log(ids)
-
   if(!ids?.length)
     return
 

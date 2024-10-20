@@ -15,14 +15,14 @@ export function useNewsStores() {
       storeIds.value = data.value.slice(0, 100)
  }
 
-  async function fetchStory(id: number) {
+  async function fetchStory(id: number): Promise<Story> {
       const storyUrl = `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
       const { data} = await useFetch<Story>(storyUrl).get().json()
 
       return data.value
     }
 
-    async function fetchStoryComment(id: number) {
+    async function fetchStoryComment(id: number):Promise<Comment> {
       const commentUrl = `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
       const { data} = await useFetch<Comment>(commentUrl).get().json()
 
