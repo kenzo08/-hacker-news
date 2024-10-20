@@ -9,15 +9,10 @@ export function useNewsStores() {
   const url = 'https://hacker-news.firebaseio.com//v0/newstories.json?print=pretty'
 
   async function fetchStoreIds() {
-   await useFetch(url, {
-       afterFetch(ctx) {
-         if (ctx.data) {
-           storeIds.value = ctx.data.slice(0, 100)
-         }
+  const {data} = await useFetch<number[]>(url).get().json()
 
-       },
-     },
-   ).get().json()
+    if(data.value)
+      storeIds.value = data.value.slice(0, 100)
  }
 
   async function fetchStory(id: number) {

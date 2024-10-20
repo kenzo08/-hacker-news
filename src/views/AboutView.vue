@@ -4,7 +4,7 @@
 
 <template>
 <div >
-  <h1 class="text-3xl sticky bottom-0">
+  <h1 class="text-3xl">
     About us
   </h1>
 </div>

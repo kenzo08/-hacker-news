@@ -18,6 +18,8 @@ const { fetchStory, fetchStoryComment } = useNewsStores()
 
 
 const fetchComments = async (ids: number[]) => {
+  console.log(ids)
+
   if(!ids?.length)
     return
 
@@ -36,7 +38,6 @@ const fetchComments = async (ids: number[]) => {
 
 onMounted(async ()=>{
   isLoading.value = true
-  // 41889017
   story.value = await fetchStory(id)
   if (story.value?.kids)
     await fetchComments(story.value?.kids)
@@ -53,7 +54,7 @@ onMounted(async ()=>{
     <AnimationSpinner v-if="isLoading"/>
     <div v-else class="flex flex-col text-xs h-full">
       <div v-if="story">
-        <h1 class="text-3xl font-bold text-[#35eb9a]">
+        <h1 class="text-xl lg:text-3xl font-bold text-[#35eb9a] px-3">
           <a :href="story?.url" target="_blank">
             {{story?.title}}
           </a>

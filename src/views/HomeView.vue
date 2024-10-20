@@ -74,6 +74,6 @@ onMounted(async ()=>  {
         <p> Score: {{ story.score }} | by {{ story?.by }} | Date: {{ formatDate(story.time) }}</p>
       </li>
     </ul>
-    <AnimationSpinner v-if="isLoadingStories"/>
+    <AnimationSpinner v-if="isLoadingStories" />
   </div>
 </template>
